@@ -3,9 +3,6 @@ package ejercicio3.command;
 import ejercicio3.modelo.FiguraGeometrica;
 import java.util.ArrayList;
 
-/**
- * Comando para calcular el valor promedio del área de las figuras geométricas.
- */
 public class CalcularPromedioAreaCommand implements Command {
     
     private ArrayList<FiguraGeometrica> figuras;

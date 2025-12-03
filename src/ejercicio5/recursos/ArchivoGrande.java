@@ -2,10 +2,6 @@ package ejercicio5.recursos;
 
 import ejercicio5.pool.Poolable;
 
-/**
- * Representa un archivo de gran tamaño.
- * Simula un recurso costoso de crear e instanciar.
- */
 public class ArchivoGrande implements Poolable {
     
     private static int contadorId = 0;
@@ -22,28 +18,23 @@ public class ArchivoGrande implements Poolable {
         this.contenido = "";
         this.tamanioBytes = 0;
         this.disponible = true;
-        
-        // Simular tiempo de creación (recurso costoso)
+
         System.out.println("    [ArchivoGrande-" + id + "] Creando instancia de archivo grande...");
         try {
-            Thread.sleep(500); // Simula 500ms de creación
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         System.out.println("    [ArchivoGrande-" + id + "] Instancia creada.");
     }
 
-    /**
-     * Carga un archivo (simula operación costosa)
-     */
     public void cargarArchivo(String nombre, long tamanioBytes) {
         this.nombre = nombre;
         this.tamanioBytes = tamanioBytes;
         
         System.out.println("    [ArchivoGrande-" + id + "] Cargando archivo: " + nombre + 
                           " (" + formatearTamanio(tamanioBytes) + ")");
-        
-        // Simular tiempo de carga
+
         try {
             Thread.sleep(300);
         } catch (InterruptedException e) {
@@ -54,9 +45,6 @@ public class ArchivoGrande implements Poolable {
         System.out.println("    [ArchivoGrande-" + id + "] Archivo cargado exitosamente.");
     }
 
-    /**
-     * Procesa el archivo
-     */
     public void procesar() {
         System.out.println("    [ArchivoGrande-" + id + "] Procesando archivo: " + nombre);
         try {
@@ -92,14 +80,6 @@ public class ArchivoGrande implements Poolable {
     @Override
     public void setDisponible(boolean disponible) {
         this.disponible = disponible;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getNombre() {
-        return nombre;
     }
 
     @Override

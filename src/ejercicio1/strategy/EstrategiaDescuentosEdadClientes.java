@@ -2,13 +2,6 @@ package ejercicio1.strategy;
 
 import ejercicio1.modelo.VentaV3;
 
-/**
- * Estrategia de descuento por edad del cliente.
- * Aplica descuentos especiales según la edad:
- * - Menores de 18 años: 10% de descuento
- * - Adultos mayores (60+): 15% de descuento
- * - Otros: Sin descuento por edad
- */
 public class EstrategiaDescuentosEdadClientes implements IEstrategiaFijarPreciosVenta {
 
     @Override
@@ -17,9 +10,9 @@ public class EstrategiaDescuentosEdadClientes implements IEstrategiaFijarPrecios
         double porcentaje = 0;
 
         if (edad < 18) {
-            porcentaje = 10; // 10% para menores
+            porcentaje = 10;
         } else if (edad >= 60) {
-            porcentaje = 15; // 15% para adultos mayores
+            porcentaje = 15;
         }
 
         return venta.getPrecioBase() * (porcentaje / 100);

@@ -2,13 +2,9 @@ package ejercicio1.strategy;
 
 import ejercicio1.modelo.VentaV3;
 
-/**
- * Estrategia de descuento fijo (porcentaje).
- * Aplica un porcentaje fijo de descuento sobre el precio base.
- */
 public class EstrategiaDescuentosFijos implements IEstrategiaFijarPreciosVenta {
     
-    private double porcentajeDescuento; // Valor entre 0 y 100
+    private double porcentajeDescuento;
 
     public EstrategiaDescuentosFijos(double porcentajeDescuento) {
         this.porcentajeDescuento = porcentajeDescuento;

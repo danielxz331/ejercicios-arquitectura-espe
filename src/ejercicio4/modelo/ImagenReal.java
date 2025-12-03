@@ -1,9 +1,5 @@
 package ejercicio4.modelo;
 
-/**
- * Clase real que representa una imagen cargada desde disco/base de datos.
- * La carga es una operación costosa (simulada con un delay).
- */
 public class ImagenReal implements Imagen {
     
     private String nombre;
@@ -14,21 +10,16 @@ public class ImagenReal implements Imagen {
         cargarDesdeDirectorio();
     }
 
-    /**
-     * Simula la carga de la imagen desde el directorio o base de datos.
-     * Esta es una operación costosa.
-     */
+
     private void cargarDesdeDirectorio() {
         System.out.println("    [ImagenReal] Cargando imagen '" + nombre + "' desde el directorio...");
-        
-        // Simular tiempo de carga (operación costosa)
+
         try {
             Thread.sleep(1000); // Simula 1 segundo de carga
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        
-        // Simular datos de la imagen
+
         this.datos = "Datos binarios de la imagen: " + nombre;
         System.out.println("    [ImagenReal] Imagen '" + nombre + "' cargada exitosamente.");
     }

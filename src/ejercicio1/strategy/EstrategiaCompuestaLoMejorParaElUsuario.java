@@ -2,10 +2,6 @@ package ejercicio1.strategy;
 
 import ejercicio1.modelo.VentaV3;
 
-/**
- * Estrategia compuesta que selecciona el MAYOR descuento disponible.
- * Esto es lo mejor para el usuario/cliente.
- */
 public class EstrategiaCompuestaLoMejorParaElUsuario extends EstrategiaCompuesta {
 
     @Override

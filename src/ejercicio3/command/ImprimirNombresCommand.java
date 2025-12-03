@@ -3,9 +3,6 @@ package ejercicio3.command;
 import ejercicio3.modelo.FiguraGeometrica;
 import java.util.ArrayList;
 
-/**
- * Comando para imprimir los nombres de todas las figuras geométricas.
- */
 public class ImprimirNombresCommand implements Command {
     
     private ArrayList<FiguraGeometrica> figuras;

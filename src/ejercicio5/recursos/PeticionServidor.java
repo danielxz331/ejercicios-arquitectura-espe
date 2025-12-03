@@ -2,10 +2,6 @@ package ejercicio5.recursos;
 
 import ejercicio5.pool.Poolable;
 
-/**
- * Representa una conexión/petición a un servidor.
- * Recurso limitado que debe ser gestionado por el pool.
- */
 public class PeticionServidor implements Poolable {
     
     private static int contadorId = 0;
@@ -28,20 +24,16 @@ public class PeticionServidor implements Poolable {
         this.respuesta = "";
         this.disponible = true;
         this.tiempoConexion = System.currentTimeMillis();
-        
-        // Simular establecimiento de conexión
+
         System.out.println("    [Peticion-" + id + "] Estableciendo conexión con el servidor...");
         try {
-            Thread.sleep(400); // Simula 400ms para establecer conexión
+            Thread.sleep(400);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         System.out.println("    [Peticion-" + id + "] Conexión establecida.");
     }
 
-    /**
-     * Configura la petición
-     */
     public void configurarPeticion(String url, String metodo, String datos) {
         this.urlServidor = url;
         this.metodoHttp = metodo;
@@ -49,29 +41,21 @@ public class PeticionServidor implements Poolable {
         System.out.println("    [Peticion-" + id + "] Configurada: " + metodo + " " + url);
     }
 
-    /**
-     * Ejecuta la petición al servidor (simulado)
-     */
     public void ejecutar() {
         System.out.println("    [Peticion-" + id + "] Ejecutando petición " + metodoHttp + " a " + urlServidor);
         
         try {
-            // Simular tiempo de respuesta del servidor
             Thread.sleep(300);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        
-        // Simular respuesta exitosa
+
         this.codigoRespuesta = 200;
         this.respuesta = "{ \"status\": \"success\", \"message\": \"Operación completada\", \"peticion_id\": " + id + " }";
         
         System.out.println("    [Peticion-" + id + "] Respuesta recibida: HTTP " + codigoRespuesta);
     }
 
-    /**
-     * Obtiene la respuesta de la petición
-     */
     public String obtenerRespuesta() {
         return respuesta;
     }
@@ -95,14 +79,6 @@ public class PeticionServidor implements Poolable {
     @Override
     public void setDisponible(boolean disponible) {
         this.disponible = disponible;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public int getCodigoRespuesta() {
-        return codigoRespuesta;
     }
 
     @Override

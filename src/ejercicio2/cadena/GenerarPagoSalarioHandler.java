@@ -14,7 +14,6 @@ public class GenerarPagoSalarioHandler extends ManejadorPersona {
             Empleado empleado = (Empleado) persona;
             generarPagoSalario(empleado);
         }
-        // Pasar al siguiente manejador
         pasarAlSiguiente(persona);
     }
 
@@ -39,23 +38,27 @@ public class GenerarPagoSalarioHandler extends ManejadorPersona {
     }
 
     private double calcularSalario(Empleado empleado) {
-        // Lógica simulada para calcular salario según cargo
-        double salarioBase = 1500000;
         String cargo = empleado.cargoAsignado();
         
-        if (cargo != null) {
-            if (cargo.toLowerCase().contains("gerente")) {
-                salarioBase = 8000000;
-            } else if (cargo.toLowerCase().contains("director")) {
-                salarioBase = 6000000;
-            } else if (cargo.toLowerCase().contains("coordinador")) {
-                salarioBase = 4000000;
-            } else if (cargo.toLowerCase().contains("analista")) {
-                salarioBase = 2500000;
-            } else if (cargo.toLowerCase().contains("asistente")) {
-                salarioBase = 1800000;
-            }
+        if (cargo == null) {
+            return 1500000;
         }
-        return salarioBase;
+        
+        String cargoLower = cargo.toLowerCase();
+        
+        switch (cargoLower) {
+            case "gerente":
+                return 8000000;
+            case "director":
+                return 6000000;
+            case "coordinador":
+                return 4000000;
+            case "analista":
+                return 2500000;
+            case "asistente":
+                return 1800000;
+            default:
+                return 1500000;
+        }
     }
 }

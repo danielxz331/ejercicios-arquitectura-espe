@@ -1,8 +1,5 @@
 package ejercicio3.modelo;
 
-/**
- * Clase que representa un Círculo.
- */
 public class Circulo extends FiguraGeometrica {
     private double radio;
 
@@ -13,10 +10,6 @@ public class Circulo extends FiguraGeometrica {
 
     public double getRadio() {
         return radio;
-    }
-
-    public void setRadio(double radio) {
-        this.radio = radio;
     }
 
     @Override

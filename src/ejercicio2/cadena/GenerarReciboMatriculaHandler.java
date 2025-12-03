@@ -14,7 +14,6 @@ public class GenerarReciboMatriculaHandler extends ManejadorPersona {
             Estudiante estudiante = (Estudiante) persona;
             generarRecibo(estudiante);
         }
-        // Pasar al siguiente manejador
         pasarAlSiguiente(persona);
     }
 

@@ -16,10 +16,8 @@ public class Main {
         System.out.println("         CHAIN OF RESPONSIBILITY");
         System.out.println("==============================================\n");
 
-        // Crear ArrayList de tipo Persona
         ArrayList<Persona> personas = new ArrayList<>();
 
-        // Crear 2 Estudiantes usando la fábrica (que usa el Builder internamente)
         System.out.println(">>> Creando objetos desde la fábrica...\n");
         
         Persona estudiante1 = PersonaFactory.crearEstudiante(
@@ -36,7 +34,6 @@ public class Main {
         );
         personas.add(estudiante2);
 
-        // Crear 3 Empleados usando la fábrica (que usa el Builder internamente)
         Persona empleado1 = PersonaFactory.crearEmpleado(
                 "Carlos Alberto", 
                 "Martínez Ruiz", 
@@ -58,7 +55,6 @@ public class Main {
         );
         personas.add(empleado3);
 
-        // Mostrar los objetos creados
         System.out.println(">>> Objetos creados en el ArrayList:");
         System.out.println("----------------------------------------------");
         for (int i = 0; i < personas.size(); i++) {
@@ -66,14 +62,12 @@ public class Main {
         }
         System.out.println();
 
-        // Configurar la Cadena de Responsabilidad
         System.out.println(">>> Configurando Cadena de Responsabilidad...\n");
         
         ManejadorPersona calcularMatricula = new CalcularValorMatriculaHandler();
         ManejadorPersona generarRecibo = new GenerarReciboMatriculaHandler();
         ManejadorPersona generarPagoSalario = new GenerarPagoSalarioHandler();
 
-        // Encadenar los manejadores
         calcularMatricula.setSiguiente(generarRecibo);
         generarRecibo.setSiguiente(generarPagoSalario);
 

@@ -2,10 +2,6 @@ package ejercicio1.strategy;
 
 import ejercicio1.modelo.VentaV3;
 
-/**
- * Estrategia de descuento absoluto.
- * Aplica un monto fijo de descuento sin importar el precio base.
- */
 public class EstrategiaDescuentosAbsoluto implements IEstrategiaFijarPreciosVenta {
     
     private double montoDescuento;
